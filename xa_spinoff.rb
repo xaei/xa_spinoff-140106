@@ -63,14 +63,14 @@ unless file_loaded?("xa_spinoff.rb")
     cmdAllOff = UI::Command.new("Show Layer Everywhere") {
       p.each { |page| page.set_visibility(s.selection[0].layer,false)}
     }
-    cmdAllOn.small_icon = "xa_layoff_all.png"
-    cmdAllOn.large_icon = "xa_layon_all.png"
+    cmdAllOn.small_icon = "xa_layon_all_small.png"
+    cmdAllOn.large_icon = "xa_layon_all_large.png"
     cmdAllOn.tooltip = "turn selected object's layer on in all pages"
     cmdAllOn.status_bar_text = "turn on selected in all layers"
     cmdAllOn.menu_text = "turn on"
 
-    cmdAllOff.small_icon = "xa_layoff_all.png"
-    cmdAllOff.large_icon = "xa_layon_all.png"
+    cmdAllOff.small_icon = "xa_layoff_all_small.png"
+    cmdAllOff.large_icon = "xa_layoff_all_large.png"
     cmdAllOff.tooltip = "turn selected object's layer off in all pages"
     cmdAllOff.status_bar_text = "turn off selected in all layers"
     cmdAllOff.menu_text = "turn on"
