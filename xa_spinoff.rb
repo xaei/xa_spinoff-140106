@@ -57,15 +57,26 @@ unless file_loaded?("xa_spinoff.rb")
     p=s.pages
     toolbar = UI::Toolbar.new "Spinoff"
     
-    cmd = UI::Command.new("Show Layer Everywhere") {
-      p.each { |page| page.set_visibility(s.selection[0].layer,true)}
+    cmdAllOn = UI::Command.new("Show Layer Everywhere") {
+      p.each { |page| page.set_visibility(s.selection[0].layer,false)}
     }
-    cmd.small_icon = "xa_layoff_all.png"
-    cmd.large_icon = "xa_layon_all.png"
-    cmd.tooltip = "turn selected object's layer on in all pages"
-    cmd.status_bar_text = "selected object layer turns on"
-    cmd.menu_text = "turn on"
-    toolbar = toolbar.add_item cmd
+    cmdAllOff = UI::Command.new("Show Layer Everywhere") {
+      p.each { |page| page.set_visibility(s.selection[0].layer,false)}
+    }
+    cmdAllOn.small_icon = "xa_layoff_all.png"
+    cmdAllOn.large_icon = "xa_layon_all.png"
+    cmdAllOn.tooltip = "turn selected object's layer on in all pages"
+    cmdAllOn.status_bar_text = "turn on selected in all layers"
+    cmdAllOn.menu_text = "turn on"
+
+    cmdAllOff.small_icon = "xa_layoff_all.png"
+    cmdAllOff.large_icon = "xa_layon_all.png"
+    cmdAllOff.tooltip = "turn selected object's layer off in all pages"
+    cmdAllOff.status_bar_text = "turn off selected in all layers"
+    cmdAllOff.menu_text = "turn on"
+    
+    toolbar = toolbar.add_item cmdAllOn
+    toolbar = toolbar.add_item cmdAllOff
     toolbar.show
 
     file_loaded("xa_spinoff.rb")
